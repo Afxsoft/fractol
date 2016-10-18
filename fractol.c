@@ -6,7 +6,7 @@
 /*   By: aouloube <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 13:36:18 by aouloube          #+#    #+#             */
-/*   Updated: 2016/10/03 13:36:20 by aouloube         ###   ########.fr       */
+/*   Updated: 2016/10/18 16:18:27 by aouloube         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,20 @@ void				set_pixel_color(t_env *e)
 
 void				menu(t_env *e)
 {
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 0, WHT, "ZOOM +/-");
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 15, WHT,
-			"ARROW up/down/left/right");
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 30, WHT, "RUSH 1/2/3");
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 45, WHT, "COLOR 4/5/6");
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 60, WHT, "ITER I/J");
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 75, WHT, "RESET R");
-	mlx_string_put(e->mlx_ptr, e->win_ptr, 0, 90, WHT, "QUIT ESC");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 400, WHT, "ZOOM | + | - |");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 415, WHT, "Move <= | ^ | =>");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 430, WHT, "RUSH|1 | 2 | 3|");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 445, WHT, "COLOR 4 | 5 | 6 ");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 460, WHT, "ITER I | J");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 475, WHT, "RESET R");
+	mlx_string_put(e->mlx_ptr, e->win_ptr, 20, 490, WHT, "QUIT ESC");
 }
 
 void				init_env(t_env *e, char *av)
 {
 	e->mlx_ptr = mlx_init();
 	e->img_ptr = mlx_new_image(e->mlx_ptr, HEIGTH, WIDTH);
-	e->win_ptr = mlx_new_window(e->mlx_ptr, HEIGTH, WIDTH, "Fract_ol");
+	e->win_ptr = mlx_new_window(e->mlx_ptr, HEIGTH, WIDTH, "Fractol");
 	e->data =
 		mlx_get_data_addr(e->img_ptr, &(e->bpp), &(e->size_line), &(e->endian));
 	if (!(ft_strcmp("mandelbrot", av)))
